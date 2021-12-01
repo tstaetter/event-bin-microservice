@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "stranger_id": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "stranger_id",
+        "external_id",
+        "email"
+      ]
+    },
+    "client": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "browser": {
+          "type": "object",
+          "properties": {
+            "user_agent": {
+              "type": "string"
+            },
+            "navigator": {
+              "type": "object",
+              "properties": {
+                "app_code_name": {
+                  "type": "string"
+                },
+                "app_name": {
+                  "type": "string"
+                },
+                "app_version": {
+                  "type": "string"
+                },
+                "cookie_enabled": {
+                  "type": "boolean"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "platform": {
+                  "type": "string"
+                },
+                "product": {
+                  "type": "string"
+                },
+                "product_sub": {
+                  "type": "string"
+                },
+                "vendor": {
+                  "type": "string"
+                },
+                "vendor_sub": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "app_code_name",
+                "app_name",
+                "app_version",
+                "cookie_enabled",
+                "language",
+                "platform",
+                "product",
+                "product_sub",
+                "vendor",
+                "vendor_sub"
+              ]
+            }
+          },
+          "required": [
+            "user_agent",
+            "navigator"
+          ]
+        },
+        "native": {
+          "type": "object",
+          "properties": {
+            "os": {
+              "type": "string"
+            },
+            "os_version": {
+              "type": "string"
+            },
+            "platform": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "os",
+            "os_version",
+            "platform"
+          ]
+        },
+        "server": {
+          "type": "object",
+          "properties": {
+            "os": {
+              "type": "string"
+            },
+            "os_version": {
+              "type": "string"
+            },
+            "framework": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "os",
+            "os_version",
+            "framework"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "browser",
+        "native",
+        "server"
+      ]
+    },
+    "sent_at": {
+      "type": "object",
+      "properties": {
+        "seconds": {
+          "type": "integer"
+        },
+        "nanos": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "seconds",
+        "nanos"
+      ]
+    },
+    "properties": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "value"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "user",
+    "client",
+    "sent_at",
+    "properties"
+  ]
+}

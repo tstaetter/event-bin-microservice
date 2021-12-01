@@ -1,0 +1,46 @@
+{
+  "name": "Hello",
+  "user": {
+    "stranger_id": "268ceedf-713a-49c7-be26-5b06ff4d6a93",
+    "external_id": "8f7f20ee-4352-4d7f-9877-35dd9615ac17",
+    "email": "Hello"
+  },
+  "client": {
+    "id": "af17a4ec-66c0-4478-89c9-c7d3646d6fc4",
+    "browser": {
+      "user_agent": "Hello",
+      "navigator": {
+        "app_code_name": "Hello",
+        "app_name": "Hello",
+        "app_version": "Hello",
+        "cookie_enabled": true,
+        "language": "Hello",
+        "platform": "Hello",
+        "product": "Hello",
+        "product_sub": "Hello",
+        "vendor": "Hello",
+        "vendor_sub": "Hello"
+      }
+    },
+    "native": {
+      "os": "Hello",
+      "os_version": "Hello",
+      "platform": "Hello"
+    },
+    "server": {
+      "os": "Hello",
+      "os_version": "Hello",
+      "framework": "Hello"
+    }
+  },
+  "sent_at": {
+    "seconds": 1637473359,
+    "nanos": 10
+  },
+  "properties": [
+    {
+      "name": "Hello",
+      "value": "Hello"
+    }
+  ]
+}

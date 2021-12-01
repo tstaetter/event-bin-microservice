@@ -4,9 +4,12 @@ Micro service receiving and validating events
 
 ## Results
 
-202 Event successfully queued
-400 No schema found or tenant invalid
-422 Request payload couldn't be validated successfully
+| Code   |      Description
+|----------|:-------------
+| 202 | Event successfully queued
+| 400 | No schema found or tenant invalid
+| 422 | Request payload couldn't be validated successfully
+| 500 | Unknown error occurred
 
 ## Schema stores
 

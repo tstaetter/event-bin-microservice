@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests
         env:
-          SCHEMAS_PATH: schemas
+          SCHEMAS_PATH: spec/fixtures/schemas
         run: |
           # run tests
           bundle exec rspec

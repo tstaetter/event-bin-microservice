@@ -9,8 +9,8 @@ describe SchemaStore::FileStore do
 
   context 'when constructing the schema file name' do
     it 'returns some' do
-      store.instance_variable_set :'@_base', 'spec/fixtures'
-      target_path = File.absolute_path('default.schema.json', 'spec/fixtures')
+      store.instance_variable_set :'@_base', 'spec/fixtures/schemas'
+      target_path = File.absolute_path('default.schema.json', 'spec/fixtures/schemas')
 
       expect(store.send(:schema_file, 'default').value).to eq target_path
     end
@@ -24,11 +24,11 @@ describe SchemaStore::FileStore do
 
   context 'when retrieving the definition' do
     let :schema do
-      JSON.load_file 'spec/fixtures/default.schema.json'
+      JSON.load_file 'spec/fixtures/schemas/default.schema.json'
     end
 
     it 'returns some' do
-      store.instance_variable_set :'@_base', 'spec/fixtures'
+      store.instance_variable_set :'@_base', 'spec/fixtures/schemas'
 
       expect(store.definition('default').value).to eq schema
     end

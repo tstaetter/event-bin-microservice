@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      RACK_ENV: test
+      GEMFILE_RUBY_VERSION: 3.0.3
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.70.1
+
+      - name: Bundle
+        run: |
+          bundle
+
+      - name: Run tests
+        env:
+          SCHEMAS_PATH: schemas
+        run: |
+          # run tests
+          bundle exec rspec

@@ -1,3 +1,5 @@
+[![CI](https://github.com/tstaetter/event-bin-microservice/actions/workflows/spec.yml/badge.svg?branch=main)](https://github.com/tstaetter/event-bin-microservice/actions/workflows/spec.yml)
+
 # EventSourced
 
 Micro service receiving and validating events

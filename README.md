@@ -34,4 +34,3 @@ bundle exec falcon --port 3000 # port defaults to 9292
 
 - Implement event class
 - Implement event queueing (Redis or gRPC service)
-- Implement Redis as SchemaStore

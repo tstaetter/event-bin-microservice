@@ -12,7 +12,7 @@ shared_context 'RedisStore' do
   end
 
   before do
-    allow(ENV).to receive(:[]).with('REDIS_URL').and_return('redis://127.0.0.1:6379/1')
+    allow(ENV).to receive(:[]).with('REDIS_URL').and_return('redis://redis:6379/1')
     allow(ENV).to receive(:[]).with('SCHEMAS_PATH').and_return(nil)
 
     # Set sample schema

@@ -17,10 +17,7 @@ describe SchemaStore do
   end
 
   context 'when loading a FileStore' do
-    before do
-      allow(ENV).to receive(:[]).with('REDIS_URL').and_return(nil)
-      allow(ENV).to receive(:[]).with('SCHEMAS_PATH').and_return('schemas')
-    end
+    include_context 'FileStore'
 
     it 'returns a FileStore, if appropriate' do
       expect(described_class.load).to be_a SchemaStore::FileStore
@@ -28,10 +25,7 @@ describe SchemaStore do
   end
 
   context 'when loading a RedisStore' do
-    before do
-      allow(ENV).to receive(:[]).with('REDIS_URL').and_return('redis://127.0.0.1:6379/1')
-      allow(ENV).to receive(:[]).with('SCHEMAS_PATH').and_return(nil)
-    end
+    include_context 'RedisStore'
 
     it 'returns a RedisStore, if appropriate' do
       expect(described_class.load).to be_a SchemaStore::RedisStore

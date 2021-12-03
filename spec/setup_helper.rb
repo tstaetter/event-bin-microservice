@@ -10,6 +10,8 @@ require 'lib/schema_store/redis_store'
 require 'lib/validator'
 require 'lib/event_bin'
 require 'event_bin_service'
+require 'support/filestore_context'
+require 'support/redisstore_context'
 
 # Delete REDIS_URL from ENV so the FileStore is always
 # used inside specs

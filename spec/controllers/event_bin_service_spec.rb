@@ -14,25 +14,39 @@ describe EventBinService do
     File.read 'spec/fixtures/event.json'
   end
 
-  context 'when POST /receive' do
-    it 'returns status 202 ACCEPTED' do
-      post '/receive', payload, EventBin::EventBin::TENANT_HEADER => 'default'
+  shared_examples_for 'EventBinService' do
+    context 'when POST /receive' do
+      it 'returns status 202 ACCEPTED' do
+        post '/receive', payload, EventBin::EventBin::TENANT_HEADER => 'default'
 
-      expect(last_response.status).to eq EventBinService::RESPONSE_CODES[:ok]
+        expect(last_response.status).to eq EventBinService::RESPONSE_CODES[:ok]
+      end
+
+      it 'returns status 400 BAD REQUEST' do
+        post '/receive', nil, EventBin::EventBin::TENANT_HEADER => 'default'
+
+        expect(last_response.status).to eq EventBinService::RESPONSE_CODES[:invalid]
+      end
+
+      it 'returns status 422 UNPROCESSABLE ENTITY' do
+        post '/receive'
+
+        expect(last_response.status).to eq EventBinService::RESPONSE_CODES[:no_schema]
+      end
+
+      pending 'returns status 500 INTERNAL SERVER ERROR'
     end
+  end
 
-    it 'returns status 400 BAD REQUEST' do
-      post '/receive', nil, EventBin::EventBin::TENANT_HEADER => 'default'
+  context 'when using FileStore' do
+    include_context 'FileStore'
 
-      expect(last_response.status).to eq EventBinService::RESPONSE_CODES[:invalid]
-    end
+    it_behaves_like 'EventBinService'
+  end
 
-    it 'returns status 422 UNPROCESSABLE ENTITY' do
-      post '/receive'
+  context 'when using RedisStore' do
+    include_context 'RedisStore'
 
-      expect(last_response.status).to eq EventBinService::RESPONSE_CODES[:no_schema]
-    end
-
-    pending 'returns status 500 INTERNAL SERVER ERROR'
+    it_behaves_like 'EventBinService'
   end
 end

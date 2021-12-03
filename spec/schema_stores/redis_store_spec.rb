@@ -7,21 +7,9 @@ describe SchemaStore::RedisStore do
     described_class.new
   end
 
-  let :schema do
-    JSON.load_file 'spec/fixtures/schemas/default.schema.json'
-  end
-
-  # Set sample schema
-  before do
-    Redis.new.set "#{described_class::SCHEMA_KEY_PREFIX}default", schema.to_json
-  end
-
-  # Cleanup
-  after do
-    Redis.new.del "#{described_class::SCHEMA_KEY_PREFIX}default"
-  end
-
   context 'when retrieving the definition' do
+    include_context 'RedisStore'
+
     it 'returns some' do
       expect(JSON.parse(store.definition('default').value)).to eq schema
     end

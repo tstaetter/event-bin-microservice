@@ -8,6 +8,7 @@ gem 'dotenv'
 gem 'falcon', '~> 0.39.2'
 gem 'json-schema', '~> 2.8', '>= 2.8.1'
 gem 'nanites', git: 'https://github.com/tstaetter/nanites', branch: 'main'
+gem 'redis', '~> 4.5', '>= 4.5.1'
 gem 'sinatra', '~> 2.1'
 
 group :development, :test do

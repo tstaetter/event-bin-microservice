@@ -1,26 +1,6 @@
 # frozen_string_literal: true
 
-# Access schema definitions
 module SchemaStore
-  class << self
-    # Load the appropriate schema store
-    # @param [Hash] _params
-    # @return BaseStore
-    def load(**_params)
-      FileStore.new
-    end
-  end
-
-  # Base schema store
-  class BaseStore
-    # Get the schema for the given ID
-    # @param [String] _id
-    # @return Nanites::Option
-    def definition(_id)
-      raise NotImplementedError
-    end
-  end
-
   # Simple file store
   class FileStore < BaseStore
     SCHEMA_SUFFIX = 'schema.json'

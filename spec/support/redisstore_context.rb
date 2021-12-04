@@ -14,6 +14,7 @@ shared_context 'RedisStore' do
   before do
     allow(ENV).to receive(:[]).with('REDIS_URL').and_return('redis://127.0.0.1:6379/1')
     allow(ENV).to receive(:[]).with('SCHEMAS_PATH').and_return(nil)
+    allow(ENV).to receive(:fetch).with('QUEUE_CHANNEL', 'events').and_return('events')
 
     # Set sample schema
     redis.set "#{SchemaStore::RedisStore::SCHEMA_KEY_PREFIX}default", schema.to_json

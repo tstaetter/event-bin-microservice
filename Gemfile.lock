@@ -125,6 +125,7 @@ GEM
     tilt (2.0.10)
     timers (4.3.3)
     unicode-display_width (2.1.0)
+    webrick (1.7.0)
 
 PLATFORMS
   ruby
@@ -140,6 +141,7 @@ DEPENDENCIES
   rubocop-rspec
   simplecov
   sinatra (~> 2.1)
+  webrick
 
 BUNDLED WITH
    2.1.4

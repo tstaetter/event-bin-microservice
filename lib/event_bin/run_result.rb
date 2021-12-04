@@ -66,39 +66,4 @@ module EventBin
       end
     end
   end
-
-  # Event bin utility class
-  class EventBin
-    # The header name transporting the tenant ID
-    TENANT_HEADER = 'X-BIN-TENANT'
-
-    # Create a new service instance
-    # @param [String] tenant The tenant ID
-    # @param [String] payload The JSON payload taken from the request body
-    def initialize(tenant, payload)
-      @_tenant = tenant
-      @_payload = payload
-    end
-
-    # Perform event processing
-    # @return EventBin::RunResult
-    def run
-      validator = Validator.new tenant
-      validation_opt = validator.validate payload
-
-      validation_opt.none? ? RunResult.ok : RunResult.error_result(validation_opt.value[:error])
-    end
-
-    private
-
-    # @return The tenant ID taken from the request header
-    def tenant
-      @_tenant
-    end
-
-    # @return The JSON payload
-    def payload
-      @_payload
-    end
-  end
 end

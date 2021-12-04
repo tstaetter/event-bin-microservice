@@ -10,6 +10,7 @@ gem 'json-schema', '~> 2.8', '>= 2.8.1'
 gem 'nanites', git: 'https://github.com/tstaetter/nanites', branch: 'main'
 gem 'redis', '~> 4.5', '>= 4.5.1'
 gem 'sinatra', '~> 2.1'
+gem 'webrick'
 
 group :development, :test do
 end

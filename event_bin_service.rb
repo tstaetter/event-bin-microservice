@@ -16,13 +16,14 @@ class EventBinService < Sinatra::Application
     request.body.rewind
 
     @payload = request.body.read
-    @tenant = request.env[EventBin::EventBin::TENANT_HEADER]
   end
 
   post '/receive' do
-    result = EventBin::EventBin.new(@tenant, @payload).run
+    result = EventBin::EventBin.new(request.env['HTTP_X_BIN_TENANT'], @payload).run
 
     status RESPONSE_CODES[result.status]
     body result.messages.to_json unless result.messages.empty?
   end
+
+  run!
 end
